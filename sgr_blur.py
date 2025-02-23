@@ -34,12 +34,12 @@ while True:
 
             cv2.rectangle(frame, (cords[0], cords[1]), (cords[2], cords[3]), (255, 0, 0), 2)
 
-            # ROI (Region of Interest) üzerinde bulanıklaştırma yapın
+            # ROI 
             roi = frame[cords[1]: cords[3], cords[0]: cords[2]]
             blurred_roi = cv2.GaussianBlur(roi, (35, 35), 0)
             frame[cords[1]:cords[3], cords[0]:cords[2]] = blurred_roi
             cv2.putText(frame, class_id, (cords[0] + 5, cords[3] - 5), font, 1.3, (255, 0, 0), 2)
-            # Çerçeveyi video dosyasına yazın ve ekranda gösterin
+
             out.write(frame)
             cv2.imshow(":)", frame)
             
